@@ -46,35 +46,12 @@ ext {
     junitVersion = '4.12'
     runnerVersion = '1.0.1'
     espressoCoreVersion = '3.0.1'
-    supportVersion = '26.1.0'
-    rxBindingsVersion = '2.1.1'
-    rxJava2Version = '2.1.10'
-    rxJava2AndroidVersion = '2.0.2'
-    stethoVersion = '1.5.0'
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
     testImplementation "junit:junit:$junitVersion"
     androidTestImplementation "com.android.support.test:runner:$runnerVersion"
     androidTestImplementation "com.android.support.test.espresso:espresso-core:$espressoCoreVersion"
-
-    implementation "com.android.support:appcompat-v7:$supportVersion"
-    implementation "com.android.support:support-v4:$supportVersion"
-    implementation "com.android.support:support-core-utils:$supportVersion"
-
-    implementation "com.jakewharton.rxbinding2:rxbinding:$rxBindingsVersion"
-    implementation "com.jakewharton.rxbinding2:rxbinding-support-v4:$rxBindingsVersion"
-    implementation "com.jakewharton.rxbinding2:rxbinding-appcompat-v7:$rxBindingsVersion"
-    implementation "com.jakewharton.rxbinding2:rxbinding-design:$rxBindingsVersion"
-    implementation "com.jakewharton.rxbinding2:rxbinding-recyclerview-v7:$rxBindingsVersion"
-
-    implementation "io.reactivex.rxjava2:rxjava:$rxJava2Version"
-    implementation "io.reactivex.rxjava2:rxandroid:$rxJava2AndroidVersion"
-
-    implementation "com.facebook.stetho:stetho:$stethoVersion"
-    implementation "com.facebook.stetho:stetho-okhttp3:$stethoVersion"
-    implementation "com.facebook.stetho:stetho-urlconnection:$stethoVersion"
 }

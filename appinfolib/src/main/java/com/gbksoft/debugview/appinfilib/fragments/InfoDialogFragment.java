@@ -12,7 +12,6 @@ import android.content.pm.PackageManager;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.text.Html;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,7 +20,6 @@ import android.view.WindowManager;
 import com.gbksoft.debugview.appinfolib.AppInfo;
 import com.gbksoft.debugview.appinfolib.R;
 import com.gbksoft.debugview.appinfolib.databinding.FragmentInfoDialogBinding;
-import com.jakewharton.rxbinding2.view.RxView;
 
 import java.io.File;
 import java.lang.reflect.Field;
@@ -61,14 +59,12 @@ public class InfoDialogFragment extends DialogFragment {
         this.tag = tag;
         show(this.activity.getFragmentManager(), this.tag);
         this.activity.getFragmentManager().executePendingTransactions();
-//        getDialog().getWindow().getDecorView().setSystemUiVisibility(getActivity().getWindow().getDecorView().getSystemUiVisibility());
         getDialog().getWindow().setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.MATCH_PARENT);
-//        getDialog().getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE);
     }
 
     @SuppressLint("CheckResult")
     private void setupClickListener() {
-        RxView.clicks(layout.close).subscribe(v -> {
+        layout.close.setOnClickListener(v -> {
             AppInfo.hideInfo();
             dismissAllowingStateLoss();
             getActivity().getFragmentManager().popBackStack();
