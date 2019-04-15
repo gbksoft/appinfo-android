@@ -9,17 +9,16 @@ import android.content.ContextWrapper;
 import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
-import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.widget.TextView;
 
 import com.gbksoft.debugview.appinfolib.AppInfo;
 import com.gbksoft.debugview.appinfolib.R;
-import com.gbksoft.debugview.appinfolib.databinding.FragmentInfoDialogBinding;
 
 import java.io.File;
 import java.lang.reflect.Field;
@@ -32,8 +31,6 @@ import static android.text.TextUtils.isEmpty;
 
 public class InfoDialogFragment extends DialogFragment {
 
-    private FragmentInfoDialogBinding layout;
-
     private List<String> sharedPreferences = new ArrayList<>();
 
     private String tag;
@@ -41,17 +38,22 @@ public class InfoDialogFragment extends DialogFragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        layout = DataBindingUtil.inflate(inflater, R.layout.fragment_info_dialog, container, false);
+        View view = inflater.inflate(R.layout.fragment_info_dialog, container, false);
 
+
+        getDialog().getWindow().setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.MATCH_PARENT);
+
+        return view;
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
         setupClickListener();
 
         setupHeader();
         setupInfoContent();
         setupFooter();
-
-        getDialog().getWindow().setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.MATCH_PARENT);
-
-        return layout.getRoot();
     }
 
     public void showDialogStickyImmersion(Activity activity, String tag) {
@@ -64,7 +66,7 @@ public class InfoDialogFragment extends DialogFragment {
 
     @SuppressLint("CheckResult")
     private void setupClickListener() {
-        layout.close.setOnClickListener(v -> {
+        getView().findViewById(R.id.close).setOnClickListener(v -> {
             AppInfo.hideInfo();
             dismissAllowingStateLoss();
             getActivity().getFragmentManager().popBackStack();
@@ -74,9 +76,9 @@ public class InfoDialogFragment extends DialogFragment {
     private void setupHeader() {
         try {
             PackageInfo pInfo = AppInfo.getContext().getPackageManager().getPackageInfo(AppInfo.getContext().getPackageName(), 0);
-            layout.infoVersionCode.setText(String.format(getString(R.string.versionCode), "" + pInfo.versionCode));
-            layout.infoVersionName.setText(String.format(getString(R.string.versionName), pInfo.versionName));
-            layout.infoPackageName.setText(String.format(getString(R.string.packageName), pInfo.packageName));
+            ((TextView)getView().findViewById(R.id.infoVersionCode)).setText(String.format(getString(R.string.versionCode), "" + pInfo.versionCode));
+            ((TextView)getView().findViewById(R.id.infoVersionName)).setText(String.format(getString(R.string.versionName), pInfo.versionName));
+            ((TextView)getView().findViewById(R.id.infoPackageName)).setText(String.format(getString(R.string.packageName), pInfo.packageName));
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
         }
@@ -103,7 +105,7 @@ public class InfoDialogFragment extends DialogFragment {
         }
         sb.append(customData);
 
-        layout.info.setText(Html.fromHtml(sb.toString()));
+        ((TextView)getView().findViewById(R.id.info)).setText(Html.fromHtml(sb.toString()));
     }
 
     private String setupBuildConfig() {
