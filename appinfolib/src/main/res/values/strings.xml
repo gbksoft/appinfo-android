@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">AppInfoLib</string>
+
+    <!--Header-->
+    <string name="versionCode">Version Code: %s</string>
+    <string name="versionName">Version Name: %s</string>
+    <string name="packageName">Package: %s</string>
+
+    <!--Info-->
+
+    <!--Footer-->
+
+
+</resources>

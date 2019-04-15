@@ -1,0 +1,2 @@
+include ':app', ':appinfolib'
+rootProject.name='AppInfo'

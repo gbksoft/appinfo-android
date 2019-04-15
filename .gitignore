@@ -1,0 +1,12 @@
+*.iml
+/local.properties
+/.idea
+.DS_Store
+/build
+/key
+api.properties
+.idea
+.idea/*
+build
+build/*
+*.apk

@@ -1,0 +1,14 @@
+*.iml
+.gradle
+/local.properties
+/.idea
+.DS_Store
+/build
+/key
+api.properties
+.idea
+.idea/*
+build
+build/*
+gradle*
+*.apk
