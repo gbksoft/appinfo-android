@@ -13,7 +13,6 @@ android {
 
         multiDexEnabled true
 
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
 
     compileOptions {
@@ -37,16 +36,6 @@ android {
     }
 }
 
-ext {
-    junitVersion = '4.12'
-    runnerVersion = '1.0.1'
-    espressoCoreVersion = '3.0.1'
-}
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-
-    testImplementation "junit:junit:$junitVersion"
-    androidTestImplementation "com.android.support.test:runner:$runnerVersion"
-    androidTestImplementation "com.android.support.test.espresso:espresso-core:$espressoCoreVersion"
 }
