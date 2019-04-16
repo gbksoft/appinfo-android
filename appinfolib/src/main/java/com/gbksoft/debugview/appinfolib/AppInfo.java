@@ -19,13 +19,13 @@ public class AppInfo {
 
     private static Context context;
     private static boolean isShake;
-    private static boolean isEnableInRelease;
+    private static boolean isEnabled;
     private static boolean isShow = false;
 
     private static Map<String, Map<String, ?>> customData = new HashMap<>();
 
     public static void showAppInfo(Activity activity) {
-        if (isEnableInRelease || BuildConfig.DEBUG) {
+        if (isEnabled) {
             InfoDialogFragment annotationAddEditDialog = new InfoDialogFragment();
             annotationAddEditDialog.showDialogStickyImmersion(activity, "InfoDialogFragment");
         }
@@ -99,7 +99,7 @@ public class AppInfo {
     public static class Builder {
         private final Context context;
         private boolean isShake = false;
-        private boolean isEnableInRelease = false;
+        private boolean isEnabled = false;
 
         public Builder(Context appContext) {
             context = appContext;
@@ -135,8 +135,8 @@ public class AppInfo {
             return this;
         }
 
-        public Builder isEnableInRelease() {
-            isEnableInRelease = true;
+        public Builder isEnabled(boolean value) {
+            AppInfo.isEnabled = value;
             return this;
         }
 
@@ -148,6 +148,6 @@ public class AppInfo {
     private AppInfo(Builder builder) {
         context = builder.context;
         isShake = builder.isShake;
-        isEnableInRelease = builder.isEnableInRelease;
+        isEnabled = builder.isEnabled;
     }
 }
