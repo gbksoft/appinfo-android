@@ -51,15 +51,15 @@ new AppInfo.Builder(this).isEnabled(true).build();
 
 ![](img/main_screen.png)
 
-To manually show debug view you need to call `AppInfo.showAppInfo(this)`, passing  `Activity`
+To manually show debug view you need to call `AppInfo.showAppInfo(this)`, passing  `Activity`  
 ![](img/dialog_appinfo.png)
 
 
-To set custom data to debug view you need to call method 
-`AppInfo.setCustomData(Map<String, Map<String, ?>> customData)`,
+To set custom data to debug view you need to call method  
+`AppInfo.setCustomData(Map<String, Map<String, ?>> customData)`,  
 ![](img/set_custom_dat.png)
 
 
-To set custom data to debug view you need to call method 
-`AppInfo.addCustomData(Map<String, Map<String, ?>> customData)`,
+To set custom data to debug view you need to call method   
+`AppInfo.addCustomData(Map<String, Map<String, ?>> customData)`,  
 ![](img/add_custom_dat.png)
