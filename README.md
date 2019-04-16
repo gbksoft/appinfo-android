@@ -26,6 +26,7 @@ public class MyApplication extends Application {
 
     private void setupAppInfo() {
         new AppInfo.Builder(this)
+            .isEnabled(true)
             .build();
     }
 }
@@ -35,15 +36,15 @@ Also you can add several parameters to constructor, like:
 
 Add `isShake()` call  to allow showing this debug view via shaking device
 ```java
-new AppInfo.Builder(this).isShake().build();
+new AppInfo.Builder(this).isEnabled(true).isShake().build();
 ```
 You can pass sensitivity parameter to `isShake(4.0f)` method, by default 4.0f  
 ```java
-new AppInfo.Builder(this).isShake(4.0f).build();
+new AppInfo.Builder(this).isEnabled(true).isShake(4.0f).build();
 ```
 Allow debug view in release build type
 ```java
-new AppInfo.Builder(this).isEnableInRelease().build();
+new AppInfo.Builder(this).isEnabled(true).build();
 ```
 
 ## How to use:
