@@ -9,7 +9,7 @@ Add `dependency` into your app level `build.gradle`:
 
 ```gradle
 dependencies {
-    implementation 'com.gbksoft.debugview.appinfolib:1.0.0'
+    implementation 'com.github.gbksoft:appinfo-android:1.0.0'
 }
 ```
 You need to setup AppInfo inside your Application class:
