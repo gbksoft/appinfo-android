@@ -136,7 +136,7 @@ public class AppInfo {
         }
 
         public Builder isEnabled(boolean value) {
-            AppInfo.isEnabled = value;
+            isEnabled = value;
             return this;
         }
 
