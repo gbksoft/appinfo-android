@@ -22,6 +22,9 @@ public class AIApplication extends MultiDexApplication {
     }
 
     private void setupAppInfo() {
-        new AppInfo.Builder(this).isShake().build();
+        new AppInfo.Builder(this)
+                .isEnabled(true)
+                .isShake()
+                .build();
     }
 }
