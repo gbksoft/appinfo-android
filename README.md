@@ -63,3 +63,6 @@ To set custom data to debug view you need to call method
 To set custom data to debug view you need to call method   
 `AppInfo.addCustomData(Map<String, Map<String, ?>> customData)`,  
 ![](img/add_custom_dat.png)
+
+# Let us know
+We'd be very happy if you sent links to your projects where you use our component. Just send us email to [github@gbksoft.com](mailto:github@gbksoft.com)
