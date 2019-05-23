@@ -88,9 +88,16 @@ public class InfoDialogFragment extends DialogFragment {
     private void setupInfoContent() {
         StringBuilder sb = new StringBuilder();
 
+        String permissions = setupPermissions();
         String buildConfig = setupBuildConfig();
         String sharedPrefereces = setupSharedPrefereces();
         String customData = setupCustomData();
+
+        sb.append("<h3>Permissions</h3>");
+        sb.append(permissions);
+        if (!isEmpty(permissions)) {
+            sb.append("<br>");
+        }
 
         sb.append("<h3>BuildConfig</h3>");
         sb.append(buildConfig);
@@ -106,6 +113,27 @@ public class InfoDialogFragment extends DialogFragment {
         sb.append(customData);
 
         ((TextView)getView().findViewById(R.id.info)).setText(Html.fromHtml(sb.toString()));
+    }
+
+    private String setupPermissions() {
+        String[] permissions;
+        StringBuilder stringBuilder = new StringBuilder();
+
+        try {
+            PackageInfo pi = AppInfo.getContext().getPackageManager().getPackageInfo(AppInfo.getContext().getPackageName(), PackageManager.GET_PERMISSIONS);
+            permissions = pi.requestedPermissions;
+            if (permissions != null) {
+                for (String permission : permissions) {
+                    stringBuilder.append(permission).append("\n");
+                }
+            } else {
+                stringBuilder.append("Application doesn't require permissions");
+            }
+        } catch (PackageManager.NameNotFoundException ex) {
+            ex.printStackTrace();
+        }
+
+        return stringBuilder.toString();
     }
 
     private String setupBuildConfig() {
