@@ -6,6 +6,14 @@ With this library you can easily implement debug view which will show different 
 ## Installation
 
 Add `dependency` into your app level `build.gradle`:
+```groovy
+allprojects {
+    repositories {
+        ...
+        maven { url 'https://jitpack.io' }
+    }
+}
+```
 
 ```gradle
 dependencies {
