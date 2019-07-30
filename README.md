@@ -17,7 +17,7 @@ allprojects {
 
 ```gradle
 dependencies {
-    implementation 'com.github.gbksoft:appinfo-android:1.0.0'
+    implementation 'com.github.gbksoft:appinfo-android:1.0.1'
 }
 ```
 You need to setup AppInfo inside your Application class:
