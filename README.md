@@ -15,11 +15,20 @@ allprojects {
 }
 ```
 
-```gradle
+```groovy
 dependencies {
     implementation 'com.github.gbksoft:appinfo-android:1.0.1'
 }
 ```
+
+Also add `compileOptions` block to use java version 1.8 
+```groovy
+compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+```
+
 You need to setup AppInfo inside your Application class:
 
 ```java
