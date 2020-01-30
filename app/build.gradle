@@ -1,18 +1,18 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 26
+    compileSdkVersion 29
     defaultConfig {
         applicationId "com.gbksoft.debugview.appinfo"
         minSdkVersion 19
-        targetSdkVersion 26
-        versionCode 2
-        versionName "1.0.2"
+        targetSdkVersion 29
+        versionCode 3
+        versionName "1.0.3"
 
         multiDexEnabled true
         vectorDrawables.useSupportLibrary = true
 
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
     compileOptions {
@@ -42,25 +42,30 @@ android {
 
 ext {
     junitVersion = '4.12'
+    junitTestExt = '1.1.1'
+    junitTestEspresso = '3.2.0'
+    junitAppcompat = '1.1.0'
+    junitLegacySupport = '1.0.0'
+    junitLegacySupportCore = '1.0.0'
     runnerVersion = '1.0.1'
     espressoCoreVersion = '3.0.1'
     supportVersion = '26.1.0'
     rxBindingsVersion = '2.1.1'
     rxJava2Version = '2.1.10'
-    rxJava2AndroidVersion = '2.0.2'
-    stethoVersion = '1.5.0'
+    rxJava2AndroidVersion = '2.1.1'
+    stethoVersion = '1.5.1'
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     testImplementation "junit:junit:$junitVersion"
-    androidTestImplementation "com.android.support.test:runner:$runnerVersion"
-    androidTestImplementation "com.android.support.test.espresso:espresso-core:$espressoCoreVersion"
+    androidTestImplementation "androidx.test.ext:junit:$junitTestExt"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$junitTestEspresso"
 
-    implementation "com.android.support:appcompat-v7:$supportVersion"
-    implementation "com.android.support:support-v4:$supportVersion"
-    implementation "com.android.support:support-core-utils:$supportVersion"
+    implementation "androidx.appcompat:appcompat:$junitAppcompat"
+    implementation "androidx.legacy:legacy-support-v4:$junitLegacySupport"
+    implementation "androidx.legacy:legacy-support-core-utils:$junitLegacySupportCore"
 
     implementation "com.jakewharton.rxbinding2:rxbinding:$rxBindingsVersion"
     implementation "com.jakewharton.rxbinding2:rxbinding-support-v4:$rxBindingsVersion"

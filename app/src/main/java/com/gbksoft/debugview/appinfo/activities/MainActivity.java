@@ -2,10 +2,10 @@ package com.gbksoft.debugview.appinfo.activities;
 
 import android.app.FragmentManager;
 import android.content.SharedPreferences;
-import android.databinding.DataBindingUtil;
+import androidx.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.util.Log;
 
 import com.gbksoft.debugview.appinfo.databinding.ActivityMainBinding;
