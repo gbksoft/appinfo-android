@@ -1,6 +1,6 @@
 package com.gbksoft.debugview.appinfo;
 
-import android.support.multidex.MultiDexApplication;
+import androidx.multidex.MultiDexApplication;
 
 import com.gbksoft.debugview.appinfolib.AppInfo;
 import com.facebook.stetho.Stetho;
