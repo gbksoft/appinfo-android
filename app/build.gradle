@@ -41,17 +41,15 @@ android {
 }
 
 ext {
-    junitVersion = '4.12'
+    junitVersion = '4.13'
     junitTestExt = '1.1.1'
     junitTestEspresso = '3.2.0'
     junitAppcompat = '1.1.0'
-    junitLegacySupport = '1.0.0'
-    junitLegacySupportCore = '1.0.0'
     runnerVersion = '1.0.1'
     espressoCoreVersion = '3.0.1'
     supportVersion = '26.1.0'
-    rxBindingsVersion = '2.1.1'
-    rxJava2Version = '2.1.10'
+    rxBindingsVersion = '2.2.0'
+    rxJava2Version = '2.2.19'
     rxJava2AndroidVersion = '2.1.1'
     stethoVersion = '1.5.1'
 }
@@ -64,8 +62,6 @@ dependencies {
     androidTestImplementation "androidx.test.espresso:espresso-core:$junitTestEspresso"
 
     implementation "androidx.appcompat:appcompat:$junitAppcompat"
-    implementation "androidx.legacy:legacy-support-v4:$junitLegacySupport"
-    implementation "androidx.legacy:legacy-support-core-utils:$junitLegacySupportCore"
 
     implementation "com.jakewharton.rxbinding2:rxbinding:$rxBindingsVersion"
     implementation "com.jakewharton.rxbinding2:rxbinding-support-v4:$rxBindingsVersion"
